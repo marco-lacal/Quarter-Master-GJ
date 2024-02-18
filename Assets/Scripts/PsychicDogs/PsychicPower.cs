@@ -11,6 +11,8 @@ public class PsychicPower : MonoBehaviour
     [SerializeField] private GameObject playerOneCoin;
     [SerializeField] private GameObject playerTwoCoin;
 
+    [SerializeField] private float timer = 10;
+
     private Coroutine buttonMash;
     private Coroutine loserCoin;
 
@@ -61,8 +63,6 @@ public class PsychicPower : MonoBehaviour
     // Coroutine for the timer and button mashing inputs
     IEnumerator ButtonMash()
     {
-        float timer = 5.0f;     // 5 second timer
-
         while(timer > 0)
         {
             // Increment each players counter by 1 for each time they pressed the key DOWN

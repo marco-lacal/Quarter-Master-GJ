@@ -1083,6 +1083,7 @@ MonoBehaviour:
   timerText: {fileID: 1395403716}
   playerOneCoin: {fileID: 1818873487}
   playerTwoCoin: {fileID: 293717823}
+  timer: 10
 --- !u!4 &1224423377
 Transform:
   m_ObjectHideFlags: 0
