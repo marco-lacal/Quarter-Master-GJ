@@ -28,6 +28,8 @@ public class CoinStacksHandler : MonoBehaviour
         Transform meow = GameObject.Find("Meow").transform;
         Transform yarg = GameObject.Find("yarg").transform;
 
+        Debug.Log(GameManager.manager.getP1Score() + " " + GameManager.manager.getP2Score());
+
         meow.position += new Vector3(0, GameManager.manager.getP1Score() * 2f, 0);
         yarg.position += new Vector3(0, GameManager.manager.getP2Score() * 2f, 0);
     }

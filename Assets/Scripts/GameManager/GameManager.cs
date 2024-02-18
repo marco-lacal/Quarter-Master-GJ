@@ -22,11 +22,14 @@ public class GameManager : MonoBehaviour
     private static int playerOneScore;
     private static int playerTwoScore;
 
+    private string winner;
+    private string loser;
+
+
     void Awake()
     {
         if(manager == null)
         {
-            Debug.Log("RUN ONCE");
             manager = this;
             DontDestroyOnLoad(this);
 
@@ -34,7 +37,6 @@ public class GameManager : MonoBehaviour
         }
         else if(manager != this)
         {
-            Debug.Log("RUN MANY");
             Destroy(gameObject);
         }
     }
@@ -48,7 +50,7 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        if(Input.GetKeyDown(KeyCode.Keypad3))
+        if(Input.GetKeyDown("3"))
         {
             UnityEditor.EditorApplication.isPlaying = false;
 
@@ -65,6 +67,16 @@ public class GameManager : MonoBehaviour
     public int getP2Score()
     {
         return playerTwoScore;
+    }
+
+    public string getWinner()
+    {
+        return winner;
+    }
+
+    public string getLoser()
+    {
+        return loser;
     }
 
     void NextScene()
@@ -85,17 +97,21 @@ public class GameManager : MonoBehaviour
             playerTwoScore++;
         }
 
-        Debug.Log("WIN " + playerOneScore + " " + playerTwoScore);
-
         if(playerOneScore >= scoreToWin)
         {
             sceneNum = 7;
+            
+            winner = "Meow";
+            loser = "yarg";
 
             StartCoroutine(ShortTimer(true));
         }
         else if(playerTwoScore >= scoreToWin)
         {
             sceneNum = 7;
+
+            winner = "yarg";
+            loser = "Meow";
 
             StartCoroutine(ShortTimer(true));
         }

@@ -520,7 +520,7 @@ PrefabInstance:
       objectReference: {fileID: 1391881944}
     - target: {fileID: 4419084823598889142, guid: d1a1e1078e76fe7469539f0480b06aae, type: 3}
       propertyPath: scoreToWin
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8303895014575900448, guid: d1a1e1078e76fe7469539f0480b06aae, type: 3}
       propertyPath: m_Name
