@@ -610,6 +610,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4419084823598889142, guid: d1a1e1078e76fe7469539f0480b06aae, type: 3}
+      propertyPath: scoreToWin
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8303895014575900448, guid: d1a1e1078e76fe7469539f0480b06aae, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -1352,7 +1356,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1804305621
 GameObject:

@@ -392,7 +392,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &653218722
 RectTransform:
   m_ObjectHideFlags: 0
@@ -927,7 +927,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meow: {fileID: 1668228697}
   yarg: {fileID: 391819811}
-  babyMouth: {fileID: 0}
+  babyMouth: {fileID: 747179375}
+  p1Win: {fileID: 653218721}
+  p2Win: {fileID: 1420946689}
 --- !u!4 &1757694780
 Transform:
   m_ObjectHideFlags: 0

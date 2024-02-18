@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,9 @@ public class FinalScene : MonoBehaviour
     [SerializeField] private Transform yarg;
 
     [SerializeField] private Transform babyMouth;
+
+    [SerializeField] private GameObject p1Win;
+    [SerializeField] private GameObject p2Win;
 
     private Transform loser;
 
@@ -37,6 +41,17 @@ public class FinalScene : MonoBehaviour
 
         loser = GameObject.Find(GameManager.manager.getLoser()).transform;
         GameObject.Find(GameManager.manager.getWinner()).SetActive(false);
+
+        if(String.Equals(GameManager.manager.getWinner(), "Meow"))
+        {
+            p1Win.SetActive(true);
+            p2Win.SetActive(false);
+        }
+        else
+        {
+            p1Win.SetActive(false);
+            p2Win.SetActive(true);
+        }
     }
 
     // Update is called once per frame
