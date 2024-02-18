@@ -18,12 +18,17 @@ public class PsychicPower : MonoBehaviour
     private int playerOnePressCounter;
     private int playerTwoPressCounter;
 
+    // set to be passed into a potential future game manager
+    private int winner;
+
     // Start is called before the first frame update
     void Start()
     {
+        // initialize the presses counters to 0
         playerOnePressCounter = 0;
         playerTwoPressCounter = 0;
 
+        // start timer and button mashing coroutine
         buttonMash = StartCoroutine(ButtonMash());
     }
 
@@ -31,6 +36,7 @@ public class PsychicPower : MonoBehaviour
     {
         if(buttonMash != null)
         {
+            Debug.Log("Hello");
             return;
         }
 
@@ -38,15 +44,21 @@ public class PsychicPower : MonoBehaviour
         {
             return;
         }
+
+        // INSERT END GAME AND UPDATE COIN MOVEMENTS HERE
+        Debug.Log("GAME HAS ENDED: The winner is player " + winner);
     }
 
+    // Coroutine for the timer and button mashing inputs
     IEnumerator ButtonMash()
     {
         directionsText.text = "Press Your Red Button!";
-        float timer = 5.0f;
+        float timer = 5.0f;     // 5 second timer
 
         while(timer > 0)
         {
+            // Increment each players counter by 1 for each time they pressed the key DOWN
+
             if(Input.GetKeyDown(KeyCode.J))
             {
                 playerOnePressCounter++;
@@ -61,7 +73,7 @@ public class PsychicPower : MonoBehaviour
             yield return null;
         }
 
-        Debug.Log(playerOnePressCounter + "  " + playerTwoPressCounter);
+        // Debug.Log(playerOnePressCounter + "  " + playerTwoPressCounter);
 
         timer = 0;
         timerText.text = timer.ToString();
@@ -70,44 +82,56 @@ public class PsychicPower : MonoBehaviour
 
         loserCoin = StartCoroutine(LoserCoin());
 
+        buttonMash = null;
+
         yield return null;
     }
 
     IEnumerator LoserCoin()
     {
-        GameObject temp;
+        // create empty GameObject that will only be used to point to the correct GameObject based on the points
+        GameObject loser;
 
+        // if player 1 wins, set the empty GameObject to player 2
         if(playerOnePressCounter > playerTwoPressCounter)
         {
-            temp = playerOneCoin;
+            winner = 1;
+            loser = playerTwoCoin;
         }
+        // vice versa
         else if(playerOnePressCounter < playerTwoPressCounter)
         {
-            temp = playerTwoCoin;
+            winner = 2;
+            loser = playerOneCoin;
         }
-        else    // tied amoutn of presses. so generate random number from 1-100 and if its 1-50, player 1 loses, and vice versa
+        else    // tied amount of presses. so generate random number from 1-100 and if its 1-50, player 1 loses, and vice versa
         {
             int flipCoin = Random.Range(1, 101);
 
-            if(flipCoin >= 50)
+            if(flipCoin <= 50)      // 1-50
             {
-                temp = playerOneCoin;
+                loser = playerOneCoin;
             }
-            else
+            else                    //51-100
             {
-                temp = playerTwoCoin;
+                loser = playerTwoCoin;
             }
         }
 
+        // 2 seconds delay before big reveal
         yield return new WaitForSecondsRealtime(2);
 
-        temp.AddComponent<Rigidbody2D>();
+        // add phsyics to the coin to fall
+        loser.AddComponent<Rigidbody2D>();
 
-        while(temp.transform.position.y >= -8.5f)
+        // once the coin is off screen, destroy it
+        while(loser.transform.position.y >= -8.5f)
         {
             yield return null;
         }
 
-        Destroy(temp);
+        Destroy(loser);
+
+        loserCoin = null;
     }
 }
