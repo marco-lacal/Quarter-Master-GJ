@@ -66,6 +66,11 @@ public class CoinStacksHandler : MonoBehaviour
     // function to determine if the correct key was pressed
     public bool CheckSentKey(bool player, KeyCode pressedKey)
     {
+        if(playerOneSize >= ScoreLimit || playerTwoSize >= ScoreLimit)
+        {
+            return false;
+        }
+
         // Check player one
         if(player && pressedKey == nextKeyPlayerOne)
         {
