@@ -5,7 +5,31 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MainScreen.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/C_Main.unity
+    guid: 4b45c2f5a26f60f45993b5e22d9e15e3
+  - enabled: 1
+    path: Assets/Scenes/C_BurgerMaking.unity
+    guid: ab70dc309ff95c84fbf1e9f42837e9e8
+  - enabled: 1
+    path: Assets/Scenes/CoinStacking.unity
+    guid: 8eb92a9b92da1ed41aa2da52bb1381cb
+  - enabled: 1
+    path: Assets/Scenes/C_psychic.unity
+    guid: 6165b9fefed23b2428d70f2e0c217043
+  - enabled: 1
+    path: Assets/Scenes/C_GuessHand.unity
+    guid: 98ebdd93ed47e2446bc5bcd07f49f85c
+  - enabled: 1
+    path: Assets/Scenes/C_Side.unity
+    guid: 9f2b81d03b48cfd4ab8686b7eb407f1f
+  - enabled: 1
+    path: Assets/Scenes/C_sisy.unity
+    guid: dc1e19db16365cd42a23554063e5194f
+  - enabled: 1
+    path: Assets/Scenes/C_Final.unity
+    guid: 19da661611d1d1d4ca65838081bf9a61
   m_configObjects: {}
