@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - BottomBun
+  - Cheese
+  - Lettuce
+  - Patty
+  - Tomato
+  - TopBun
   layers:
   - Default
   - TransparentFX
