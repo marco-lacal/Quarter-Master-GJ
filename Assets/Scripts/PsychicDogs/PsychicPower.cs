@@ -61,7 +61,7 @@ public class PsychicPower : MonoBehaviour
     // Coroutine for the timer and button mashing inputs
     IEnumerator ButtonMash()
     {
-        float timer = 5.0f;     // 5 second timer
+        float timer = 10.0f;     // 5 second timer
 
         while(timer > 0)
         {
