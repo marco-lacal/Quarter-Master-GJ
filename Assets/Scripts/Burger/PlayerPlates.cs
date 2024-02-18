@@ -61,7 +61,7 @@ public class PlayerPlates : MonoBehaviour
                 if(Input.GetKeyDown(mappings[i]))
                 {
                     // send which player and send the index of the pressed key
-                    GameObject result = burgerRef.CheckSentKey(playerNum == 1 ? true : false, i);
+                    GameObject result = burgerRef.CheckSentKey(playerNum, i);
 
                     // if CheckSentKey returned a sufficient GameObject (meaning it was successful)
                     if(result != null)

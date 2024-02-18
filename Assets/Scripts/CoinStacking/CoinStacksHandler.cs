@@ -30,36 +30,37 @@ public class CoinStacksHandler : MonoBehaviour
         playerTwoSize = 0;
     }
 
-    void Update()
+    // function to set the next key for either player. also changes the color of the sphere to indicate which key to press
+    public void SetNextPlayersKey(bool player, KeyCode next, int index)
     {
         if(playerOneSize >= ScoreLimit)
         {
             Debug.Log("PLAYER 1 WINS");
 
             // END THE GAME RIGHT HERE
+            GameManager.manager.MinigameWin(true);
+            return;
         }
         else if(playerTwoSize >= ScoreLimit)
         {
             Debug.Log("PLAYER 2 WINS");
 
             // END THE GAME RIGHT HERE
+            GameManager.manager.MinigameWin(false);
+            return;
         }
-    }
 
-    // function to set the next key for either player. also changes the color of the sphere to indicate which key to press
-    public void SetNextPlayersKey(bool player, KeyCode next, int index)
-    {
         if(player)
         {
             nextKeyPlayerOne = next;
             playerOneCircle.color = buttonColors[index];
-            Debug.Log("Player 1: " + next);
+            // Debug.Log("Player 1: " + next);
         }
         else
         {
             nextKeyPlayerTwo = next;
             playerTwoCircle.color = buttonColors[index];
-            Debug.Log("Player 2: " + next);
+            // Debug.Log("Player 2: " + next);
         }
     }
 
@@ -77,6 +78,7 @@ public class CoinStacksHandler : MonoBehaviour
             playerOneSize++;
             spawnOneLocation = new Vector3(spawnOneLocation.x, spawnOneLocation.y + 0.3f, 0);
             Instantiate(coinPrefab, spawnOneLocation, Quaternion.identity);
+
             return true;
         }
         // Check player two
@@ -85,6 +87,7 @@ public class CoinStacksHandler : MonoBehaviour
             playerTwoSize++;
             spawnTwoLocation = new Vector3(spawnTwoLocation.x, spawnTwoLocation.y + 0.3f, 0);
             Instantiate(coinPrefab, spawnTwoLocation, Quaternion.identity);
+
             return true;
         }
 

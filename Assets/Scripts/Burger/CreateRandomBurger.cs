@@ -113,7 +113,7 @@ public class CreateRandomBurger : MonoBehaviour
     }
 
     // determine if the key sent in is the next piece to add for the specified player
-    public GameObject CheckSentKey(bool player, int burgerIndex)
+    public GameObject CheckSentKey(int player, int burgerIndex)
     {
         // if one player has built the whole burger, stop more inputs
         if(player1Index >= createdBurger.Count || player2Index >= createdBurger.Count)
@@ -123,7 +123,7 @@ public class CreateRandomBurger : MonoBehaviour
         }
 
         // if player 1 entered the correct part
-        if(player && burgerParts[burgerIndex].tag == createdBurger[player1Index].tag)
+        if(player == 1 && burgerParts[burgerIndex].tag == createdBurger[player1Index].tag)
         {
             // advance their pointer forward
             player1Index++;
@@ -135,13 +135,14 @@ public class CreateRandomBurger : MonoBehaviour
                 Debug.Log("PLAYER 1 WON");
 
                 // AT THIS POINT, UPDATE GAMEMANAGER OR WHATEVER AND CLOSE THIS MINIGAME
+                GameManager.manager.MinigameWin(true);
             }
             
             // send the piece to PlayerPlate to instantiate it
             return burgerParts[burgerIndex];
         }
         // if player 2 entered the correct part
-        else if(!player && GameObject.ReferenceEquals(burgerParts[burgerIndex], createdBurger[player2Index]))
+        else if(player == 2 && burgerParts[burgerIndex].tag == createdBurger[player2Index].tag)
         {
             // advance their pointer forward
             player2Index++;
@@ -153,6 +154,7 @@ public class CreateRandomBurger : MonoBehaviour
                 Debug.Log("PLAYER 2 WON");
 
                 // AT THIS POINT, UPDATE GAMEMANAGER OR WHATEVER AND CLOSE THIS MINIGAME
+                GameManager.manager.MinigameWin(false);
             }
 
             // send the piece to PlayerPlate to instantiate it

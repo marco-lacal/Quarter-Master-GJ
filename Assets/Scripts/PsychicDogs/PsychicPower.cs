@@ -35,7 +35,6 @@ public class PsychicPower : MonoBehaviour
     {
         if(buttonMash != null)
         {
-            Debug.Log("Hello");
             return;
         }
 
@@ -115,7 +114,7 @@ public class PsychicPower : MonoBehaviour
         }
 
         // 2 seconds delay before big reveal
-        yield return new WaitForSecondsRealtime(2);
+        yield return new WaitForSeconds(2);
 
         // add phsyics to the coin to fall
         loser.AddComponent<Rigidbody2D>();
@@ -129,5 +128,7 @@ public class PsychicPower : MonoBehaviour
         Destroy(loser);
 
         loserCoin = null;
+
+        GameManager.manager.MinigameWin(true);
     }
 }
