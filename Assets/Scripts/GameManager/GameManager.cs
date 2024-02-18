@@ -37,32 +37,6 @@ public class GameManager : MonoBehaviour
             Debug.Log("RUN MANY");
             Destroy(gameObject);
         }
-
-        Transform meow = GameObject.Find("Meow").transform;
-        Transform yarg = GameObject.Find("yarg").transform;
-
-        if(sceneNum == 7)
-        {
-            Debug.Log("HELLO from ");
-
-            if(playerOneScore > playerTwoScore)
-            {
-                yarg.gameObject.SetActive(false);
-            }
-            else
-            {
-                meow.gameObject.SetActive(false);
-            }
-        }
-
-        Debug.Log(meow.name + "  " + yarg.name);
-
-        meow.position += new Vector3(0, playerOneScore * 2f, 0);
-        yarg.position += new Vector3(0, playerTwoScore * 2f, 0);
-
-        Debug.Log((playerOneScore * 20f) + "  " + (playerTwoScore * 20f));
-
-        Debug.Log("Score: " + playerOneScore + "  " + playerTwoScore);
     }
 
     void Update()
@@ -81,6 +55,16 @@ public class GameManager : MonoBehaviour
             // use this for build
             // Application.Quit()
         }
+    }
+
+    public int getP1Score()
+    {
+        return playerOneScore;
+    }
+
+    public int getP2Score()
+    {
+        return playerTwoScore;
     }
 
     void NextScene()

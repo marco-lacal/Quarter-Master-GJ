@@ -20,6 +20,15 @@ public class PsychicPower : MonoBehaviour
     // set to be passed into a potential future game manager
     private int winner;
 
+    void Awake()
+    {
+        Transform meow = GameObject.Find("Meow").transform;
+        Transform yarg = GameObject.Find("yarg").transform;
+
+        meow.position += new Vector3(0, GameManager.manager.getP1Score() * 2f, 0);
+        yarg.position += new Vector3(0, GameManager.manager.getP2Score() * 2f, 0);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -129,6 +138,13 @@ public class PsychicPower : MonoBehaviour
 
         loserCoin = null;
 
-        GameManager.manager.MinigameWin(true);
+        if(winner == 1)
+        {
+            GameManager.manager.MinigameWin(true);
+        }
+        else
+        {
+            GameManager.manager.MinigameWin(false);
+        }
     }
 }

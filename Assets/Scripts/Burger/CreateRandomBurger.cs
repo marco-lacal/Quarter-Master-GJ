@@ -52,6 +52,15 @@ public class CreateRandomBurger : MonoBehaviour
         createdBurger.Add(temp);
     }
 
+    void Awake()
+    {
+        Transform meow = GameObject.Find("Meow").transform;
+        Transform yarg = GameObject.Find("yarg").transform;
+
+        meow.position += new Vector3(0, GameManager.manager.getP1Score() * 2f, 0);
+        yarg.position += new Vector3(0, GameManager.manager.getP2Score() * 2f, 0);
+    }
+
     void Start()
     {
         createdBurger = new List<GameObject>();
