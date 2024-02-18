@@ -153,9 +153,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinPrefab: {fileID: 4073405276846587106, guid: d9b6373f1971bca4ba6da071aa97918e, type: 3}
-  stackOneLocation: {x: -3, y: -2, z: 0}
-  stackTwoLocation: {x: 3, y: -2, z: 0}
-  ScoreLimit: 7
+  spawnOneLocation: {x: -3, y: -2, z: 0}
+  spawnTwoLocation: {x: 3, y: -2, z: 0}
+  playerOneCircle: {fileID: 2056653247}
+  playerTwoCircle: {fileID: 1762705131}
+  ScoreLimit: 12
+  buttonColors:
+  - {r: 0.99636734, g: 1, b: 0, a: 1}
+  - {r: 0.16735172, g: 1, b: 0, a: 1}
+  - {r: 0, g: 0.0184803, b: 1, a: 1}
+  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 0, g: 0, b: 0, a: 1}
 --- !u!4 &116493031
 Transform:
   m_ObjectHideFlags: 0
@@ -342,7 +351,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 0.038576603, b: 1, a: 1}
+  m_Color: {r: 0.5921569, g: 0.29411766, b: 0.6509804, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -469,7 +478,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.5909729, g: 0.29783732, b: 0.6509434, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

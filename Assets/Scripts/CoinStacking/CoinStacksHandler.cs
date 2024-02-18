@@ -7,10 +7,15 @@ public class CoinStacksHandler : MonoBehaviour
 {
     [SerializeField] private GameObject coinPrefab;
 
-    [SerializeField] private Vector3 stackOneLocation;
-    [SerializeField] private Vector3 stackTwoLocation;
+    [SerializeField] private Vector3 spawnOneLocation;
+    [SerializeField] private Vector3 spawnTwoLocation;
+
+    [SerializeField] private SpriteRenderer playerOneCircle;
+    [SerializeField] private SpriteRenderer playerTwoCircle;
 
     [SerializeField] private int ScoreLimit;
+
+    [SerializeField] private Color[] buttonColors;
 
     private KeyCode nextKeyPlayerOne;
     private KeyCode nextKeyPlayerTwo;
@@ -24,8 +29,8 @@ public class CoinStacksHandler : MonoBehaviour
         playerOneSize = 0;
         playerTwoSize = 0;
 
-        Debug.Log(stackOneLocation);
-        Debug.Log(stackTwoLocation);
+        Debug.Log(spawnOneLocation);
+        Debug.Log(spawnTwoLocation);
     }
 
     void Update()
@@ -40,16 +45,18 @@ public class CoinStacksHandler : MonoBehaviour
         }
     }
 
-    public void SetNextPlayersKey(bool player, KeyCode next)
+    public void SetNextPlayersKey(bool player, KeyCode next, int index)
     {
         if(player)
         {
             nextKeyPlayerOne = next;
+            playerOneCircle.color = buttonColors[index];
             Debug.Log("Player 1: " + next);
         }
         else
         {
             nextKeyPlayerTwo = next;
+            playerTwoCircle.color = buttonColors[index];
             Debug.Log("Player 2: " + next);
         }
     }
@@ -60,16 +67,16 @@ public class CoinStacksHandler : MonoBehaviour
         if(player && pressedKey == nextKeyPlayerOne)
         {
             playerOneSize++;
-            stackOneLocation = new Vector3(stackOneLocation.x, stackOneLocation.y + 0.3f, 0);
-            Instantiate(coinPrefab, stackOneLocation, Quaternion.identity);
+            spawnOneLocation = new Vector3(spawnOneLocation.x, spawnOneLocation.y + 0.3f, 0);
+            Instantiate(coinPrefab, spawnOneLocation, Quaternion.identity);
             return true;
         }
         // Check player two
         else if(!player && pressedKey == nextKeyPlayerTwo)
         {
             playerTwoSize++;
-            stackTwoLocation = new Vector3(stackTwoLocation.x, stackTwoLocation.y + 0.3f, 0);
-            Instantiate(coinPrefab, stackTwoLocation, Quaternion.identity);
+            spawnTwoLocation = new Vector3(spawnTwoLocation.x, spawnTwoLocation.y + 0.3f, 0);
+            Instantiate(coinPrefab, spawnTwoLocation, Quaternion.identity);
             return true;
         }
 

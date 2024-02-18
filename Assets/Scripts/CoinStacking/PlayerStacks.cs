@@ -24,7 +24,9 @@ public class PlayerStacks : MonoBehaviour
             return;
         }
 
-        handlerRef.SetNextPlayersKey(playerNum == 1 ? true : false, mappings[Random.Range(0, mappings.Length)]);
+        int randNumber = Random.Range(0, mappings.Length);
+
+        handlerRef.SetNextPlayersKey(playerNum == 1 ? true : false, mappings[randNumber], randNumber);
     }
 
     // Update is called once per frame
@@ -38,7 +40,9 @@ public class PlayerStacks : MonoBehaviour
                 {
                     if(handlerRef.CheckSentKey(playerNum == 1 ? true : false, mapping))
                     {
-                        handlerRef.SetNextPlayersKey(playerNum == 1 ? true : false, mappings[Random.Range(0, mappings.Length)]);
+                        int randNumber = Random.Range(0, mappings.Length);
+
+                        handlerRef.SetNextPlayersKey(playerNum == 1 ? true : false, mappings[randNumber], randNumber);
                     }
                     break;
                 }
