@@ -28,9 +28,6 @@ public class CoinStacksHandler : MonoBehaviour
     {
         playerOneSize = 0;
         playerTwoSize = 0;
-
-        Debug.Log(spawnOneLocation);
-        Debug.Log(spawnTwoLocation);
     }
 
     void Update()
@@ -38,13 +35,18 @@ public class CoinStacksHandler : MonoBehaviour
         if(playerOneSize >= ScoreLimit)
         {
             Debug.Log("PLAYER 1 WINS");
+
+            // END THE GAME RIGHT HERE
         }
         else if(playerTwoSize >= ScoreLimit)
         {
             Debug.Log("PLAYER 2 WINS");
+
+            // END THE GAME RIGHT HERE
         }
     }
 
+    // function to set the next key for either player. also changes the color of the sphere to indicate which key to press
     public void SetNextPlayersKey(bool player, KeyCode next, int index)
     {
         if(player)
@@ -61,6 +63,7 @@ public class CoinStacksHandler : MonoBehaviour
         }
     }
 
+    // function to determine if the correct key was pressed
     public bool CheckSentKey(bool player, KeyCode pressedKey)
     {
         // Check player one
