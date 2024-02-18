@@ -1005,7 +1005,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 1395403716}
-  directionsText: {fileID: 0}
   playerOneCoin: {fileID: 1818873487}
   playerTwoCoin: {fileID: 293717823}
 --- !u!4 &1224423377
@@ -1575,7 +1574,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1854170473}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -587.26, y: -273.71, z: 0}
+  m_LocalPosition: {x: -580.68, y: -278.75, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

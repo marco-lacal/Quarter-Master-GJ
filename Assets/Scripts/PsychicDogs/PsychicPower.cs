@@ -7,7 +7,6 @@ using UnityEngine;
 public class PsychicPower : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI timerText;
-    [SerializeField] private TextMeshProUGUI directionsText;
 
     [SerializeField] private GameObject playerOneCoin;
     [SerializeField] private GameObject playerTwoCoin;
@@ -52,7 +51,6 @@ public class PsychicPower : MonoBehaviour
     // Coroutine for the timer and button mashing inputs
     IEnumerator ButtonMash()
     {
-        directionsText.text = "Press Your Red Button!";
         float timer = 5.0f;     // 5 second timer
 
         while(timer > 0)
@@ -77,8 +75,6 @@ public class PsychicPower : MonoBehaviour
 
         timer = 0;
         timerText.text = timer.ToString();
-
-        directionsText.text = "Now Psychic Battle!!";
 
         loserCoin = StartCoroutine(LoserCoin());
 
