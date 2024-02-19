@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
 
         if(Input.GetKeyDown("3"))
         {
-            UnityEditor.EditorApplication.isPlaying = false;
+            Application.Quit();
 
             // use this for build
             // Application.Quit()
